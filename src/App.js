@@ -51,13 +51,25 @@ function App() {
 class Mana extends Component {
   state = {
     nome: "Nome",
-    description: "Descrição"
+    description: "Descrição",
+    special: 0,
+    dados: 0,
+    add: 0,
   }
 
   stateChange = (f) => {
     const {name, value} = f.target;
+    var fin = value
+    if (name === "special") {
+        if (f.target.checked) {
+          fin = 1
+        } else {
+          fin = 0
+        }
+        console.log(f.target.checked)
+    }
     this.setState({
-      [name]: value,
+      [name]: fin,
     });
   }
 
@@ -67,14 +79,15 @@ class Mana extends Component {
         <h2>Mana</h2>
         <h1>{this.state.nome}</h1>
         <p>{this.state.description}</p>
+        <p>Custo: {parseInt(this.state.special) + parseInt(this.state.dados) + parseInt( this.state.add/2)};</p>
 
         <br></br>
         <p> <label>Nome: </label><textarea name="nome" onChange={this.stateChange}/></p>
         <br/>
         <p> <label>Descrição: </label><textarea name="description" onChange={this.stateChange}/></p>
         <br/>
-        <p>Efeito especial <input type="checkbox"/></p>
-        <p>Dano: <input type="number" min="0" max="100"/> D + <input type="number" min="0" max="10"/></p>
+        <p>Efeito especial <input type="checkbox" name="special" onChange={this.stateChange}/></p>
+        <p>Dano: <input type="number" min="0" max="100" name="dados" onChange={this.stateChange}/> D + <input type="number" min="0" max="10" name="add" onChange={this.stateChange}/></p>
       </div>
     );
   }
