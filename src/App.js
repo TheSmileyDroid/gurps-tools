@@ -55,6 +55,9 @@ class Mana extends Component {
     special: 0,
     dados: 0,
     add: 0,
+    knock: 0,
+    fad: 0,
+    blind: 0,
   }
 
   stateChange = (f) => {
@@ -79,7 +82,15 @@ class Mana extends Component {
         <h2>Mana</h2>
         <h1>{this.state.nome}</h1>
         <p>{this.state.description}</p>
-        <p>Custo: {parseInt(this.state.special) + parseInt(this.state.dados) + parseInt( this.state.add/2)};</p>
+        <p>Custo: {
+        parseInt(this.state.special) +
+        parseInt(this.state.dados) +
+        parseInt( this.state.add/2) +
+        parseInt( this.state.knock/2) + 
+        parseInt( this.state.fad) + 
+        parseInt( this.state.blind)
+           
+           };</p>
 
         <br></br>
         <p> <label>Nome: </label><textarea name="nome" onChange={this.stateChange}/></p>
@@ -88,6 +99,9 @@ class Mana extends Component {
         <br/>
         <p>Efeito especial <input type="checkbox" name="special" onChange={this.stateChange}/></p>
         <p>Dano: <input type="number" min="0" max="100" name="dados" onChange={this.stateChange}/> D + <input type="number" min="0" max="10" name="add" onChange={this.stateChange}/></p>
+        <p>Knockback: <input type="number" min="0" max="100" name="knock" onChange={this.stateChange}/> D </p>
+        <p>Dano a fadiga: <input type="number" min="0" max="100" name="fad" onChange={this.stateChange}/></p>
+        <p>Segundos de cegueira no alvo: <input type="number" min="0" max="100" name="blind" onChange={this.stateChange}/></p>
       </div>
     );
   }
