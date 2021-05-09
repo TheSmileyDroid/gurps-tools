@@ -24,6 +24,10 @@
   color: white;
 }
 
+nav {
+  display: contents;
+}
+
 .App-link {
   color: #61dafb;
   text-decoration: none;
@@ -38,6 +42,10 @@
 ul.magic-types {
   display: flex;
   list-style: none;
+  position: fixed;
+  top: 0px;
+  margin: 0 auto;
+  padding: 10px;
 }
 
 .magic-types li {

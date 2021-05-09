@@ -12,8 +12,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Router>
-          <div>
-            <nav>
+          <nav>
               <ul className="magic-types">
                 <li>
                   <Link className="App-link" to="/Mana">Mana</Link>
@@ -26,6 +25,8 @@ function App() {
                 </li>
               </ul>
             </nav>
+          <div>
+            
             <Switch>
               <Route path="/Mana">
                 <Mana />
@@ -50,6 +51,10 @@ function Mana() {
   return (
     <div>
       <h2>Mana</h2>
+      <p> <label>Descrição: </label><textarea/></p>
+      <br/>
+      <p>Efeito especial <input type="checkbox"/></p>
+      <p>Dano: <input type="number" min="0" max="100"/> D + <input type="number" min="0" max="10"/></p>
     </div>
   );
 }
