@@ -6,6 +6,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import React, { Component } from 'react';
 
 function App() {
   return (
@@ -47,17 +48,38 @@ function App() {
   );
 }
 
-function Mana() {
-  return (
-    <div>
-      <h2>Mana</h2>
-      <p> <label>Descrição: </label><textarea/></p>
-      <br/>
-      <p>Efeito especial <input type="checkbox"/></p>
-      <p>Dano: <input type="number" min="0" max="100"/> D + <input type="number" min="0" max="10"/></p>
-    </div>
-  );
+class Mana extends Component {
+  state = {
+    nome: "Nome",
+    description: "Descrição"
+  }
+
+  stateChange = (f) => {
+    const {name, value} = f.target;
+    this.setState({
+      [name]: value,
+    });
+  }
+
+  render() {
+    return (
+      <div className="container">
+        <h2>Mana</h2>
+        <h1>{this.state.nome}</h1>
+        <p>{this.state.description}</p>
+
+        <br></br>
+        <p> <label>Nome: </label><textarea name="nome" onChange={this.stateChange}/></p>
+        <br/>
+        <p> <label>Descrição: </label><textarea name="description" onChange={this.stateChange}/></p>
+        <br/>
+        <p>Efeito especial <input type="checkbox"/></p>
+        <p>Dano: <input type="number" min="0" max="100"/> D + <input type="number" min="0" max="10"/></p>
+      </div>
+    );
+  }
 }
+
 
 function Bruxa() {
   return (<div><h2>Bruxa</h2></div>);

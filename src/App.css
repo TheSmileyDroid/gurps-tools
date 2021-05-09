@@ -48,6 +48,10 @@ ul.magic-types {
   padding: 10px;
 }
 
+.container {
+  margin-top: 30%;
+}
+
 .magic-types li {
   padding: 10px;
   outline-style: auto;
