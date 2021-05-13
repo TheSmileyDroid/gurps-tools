@@ -80,17 +80,20 @@ class Mana extends Component {
     return (
       <div className="container">
         <h2>Mana</h2>
-        <h1>{this.state.nome}</h1>
-        <p>{this.state.description}</p>
-        <p>Custo: {
-        parseInt(this.state.special) +
-        parseInt(this.state.dados) +
-        parseInt( this.state.add/2) +
-        parseInt( this.state.knock/2) + 
-        parseInt( this.state.fad) + 
-        parseInt( this.state.blind)
-           
-           };</p>
+        <div className="result">
+          <h1>{this.state.nome}</h1>
+          <p>{this.state.description}</p>
+          <p>Custo: {
+          parseInt(this.state.special) +
+          parseInt(this.state.dados) +
+          parseInt( this.state.add/2) +
+          parseInt( this.state.knock/2) + 
+          parseInt( this.state.fad) + 
+          parseInt( this.state.blind)
+            
+            };</p>
+        </div>
+        
 
         <br></br>
         <p> <label>Nome: </label><textarea name="nome" onChange={this.stateChange}/></p>
